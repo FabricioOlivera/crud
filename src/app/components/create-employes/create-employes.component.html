@@ -1,0 +1,101 @@
+<div>
+  <br>
+  <h3 class="text-center text-light border-top-0">{{ title }}</h3>
+</div>
+
+<div class="container bg-dark">
+  <div class="row bg-dark">
+    <div class="col-lg-6 offset-lg-3 bg-dark">
+      <div class="card-body text-lg-start bg-dark">
+        <form [formGroup]="employeForm" (ngSubmit)="addEmployee()">
+          <div class="mb-3">
+            <label for="firstName" class="form-label text-light">Nombres</label>
+            <input
+              type="text"
+              formControlName="firstName"
+              id="firstName"
+              class="form-control form-control-lg"
+              placeholder="Nombre"
+            />
+            <div>
+              @if(!employeForm.value.firstName){
+                <span class="text-danger text-sm"
+                >El nombre del empleado <strong>es obligatorio</strong></span
+              >
+              }
+           
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="secondName" class="form-label text-light">Apellido</label>
+            <input
+              type="text"
+              formControlName="secondName"
+              id="secondName"
+              class="form-control form-control-lg"
+              placeholder="Apellido"
+            />
+            <div>
+              @if(!employeForm.value.secondName){
+                <span class="text-danger text-sm"
+                >El apellido del empleado<strong>es obligatorio</strong></span
+                >
+              }
+              
+             
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="born" class="form-label text-light">Fecha de nacimiento</label>
+            <input
+              type="date"
+              formControlName="born"
+              id="born"
+              class="form-control form-control-lg"
+              placeholder="Fecha de nacimiento"
+            />
+            <div>
+              @if(!employeForm.value.born){
+                <span class="text-danger text-sm"
+                >La fecha de nacimiento <strong>es obligatoria</strong></span>
+              }
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="position" class="form-label text-light">Cargo</label>
+            <select
+              class="form-control form-control-lg"
+              aria-label="Default select example"
+              formControlName="position"
+              id="position"
+            >
+              <option selected value="">Elija el cargo</option>
+              @for (item of listPositions?.positions; track item) {
+
+              <option value="{{ item }}">{{ item }}</option>
+
+              } @empty {
+              <option value="">No positions</option>
+              }
+            </select>
+
+            <div>
+              @if(!employeForm.value.position){
+                <span class="text-danger text-sm">El cargo del contrato<strong>es obligatorio</strong></span>
+              }
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <button class="btn btn-secondary btn-lg float-start" routerLink="/">
+              Volver
+            </button>
+            <button type="submit" class="btn btn-success btn-lg float-end">
+              Aceptar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
