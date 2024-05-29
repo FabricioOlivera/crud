@@ -23,4 +23,4 @@ Run `npm run watch` to execute the unit tests via [Jest](https://jestjs.io/docs/
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
 ## Connect with api
-To configure connectio to api [Api](https://jestjs.io/docs/testing-frameworks).
+To configure connectio to api [Api](https://github.com/FabricioOlivera/api).
